@@ -39,7 +39,7 @@ namespace
 
   TEST(RomanNumeral, SubstractAndAdd) 
   {
-    const int arabToCheck = 91;
+    const int arabToCheck = 92;
     const std::string expectedRoman = "XCII";
 
     RomanNumeral romanNumeral(arabToCheck);

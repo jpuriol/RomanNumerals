@@ -20,6 +20,7 @@ class RomanNumeral
       {500, 'D'},
       {1000, 'M'}
     };
+    std::string basicAlgorithm(int);
 };
 
 #endif  // GTEST_SAMPLES_SAMPLE1_H_

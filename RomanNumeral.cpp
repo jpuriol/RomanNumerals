@@ -6,13 +6,25 @@
 RomanNumeral::RomanNumeral(int arabNumeral)
 { this->arabNumeral = arabNumeral; }
 
-std::string RomanNumeral::get() 
+
+std::string RomanNumeral::get()
+{
+  return RomanNumeral::basicAlgorithm(this->arabNumeral / 1000 % 10 * 1000) // Millones
+    + RomanNumeral::basicAlgorithm(this->arabNumeral / 100 % 10 * 100) // Centenas
+    + RomanNumeral::basicAlgorithm(this->arabNumeral / 10 % 10 * 10)  // Decenas
+    + RomanNumeral::basicAlgorithm(this->arabNumeral % 10);
+}
+
+/**
+ * Works for al cases except for: SubstractingAndAdding
+ */
+std::string RomanNumeral::basicAlgorithm(int arabNumeral) 
 {
   std::string roman = "";
-  int remainigArab = this->arabNumeral;  
+  int remainigArab = arabNumeral;  
 
   // Basic & Adding
-  do 
+  while(remainigArab > 0)
   {
     auto it = symbols.lower_bound(remainigArab);
     if( (it == symbols.cend()) || (remainigArab - it->first < 0) ) 
@@ -20,9 +32,8 @@ std::string RomanNumeral::get()
     roman += it->second;
     remainigArab -= it->first;
   } 
-  while(remainigArab > 0);
 
-  // Substracting & SubstractingAndAdding
+  // Substracting & 
   for(auto iter : symbols)
   {
     std::string toFind = "";
@@ -32,7 +43,7 @@ std::string RomanNumeral::get()
     if (foundRepeated != std::string::npos) // Si encuentra más de tres carácteres seguidos
     {
       roman = iter.second;
-      roman += symbols.lower_bound(this->arabNumeral)->second;
+      roman += symbols.lower_bound(arabNumeral)->second;
     }
   }
   
