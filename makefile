@@ -14,7 +14,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = ../../googletest/googletest
+GTEST_DIR = ./googletest/googletest
 
 # Where to find user code.
 USER_DIR = .
@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = RomanNumeralTests
+TESTS = RomanNumeralsTests
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -71,12 +71,12 @@ gtest_main.a : gtest-all.o gtest_main.o
 # gtest_main.a, depending on whether it defines its own main()
 # function.
 
-RomanNumeral.o : $(USER_DIR)/RomanNumeral.cpp $(USER_DIR)/RomanNumeral.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/RomanNumeral.cpp
+RomanNumerals.o : $(USER_DIR)/RomanNumerals.cpp $(USER_DIR)/RomanNumerals.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/RomanNumerals.cpp
 
-RomanNumeralTests.o : $(USER_DIR)/RomanNumeralTests.cpp \
-                     $(USER_DIR)/RomanNumeral.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/RomanNumeralTests.cpp
+RomanNumeralsTests.o : $(USER_DIR)/RomanNumeralsTests.cpp \
+                     $(USER_DIR)/RomanNumerals.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/RomanNumeralsTests.cpp
 
-RomanNumeralTests: RomanNumeral.o RomanNumeralTests.o gtest_main.a
+RomanNumeralsTests: RomanNumerals.o RomanNumeralsTests.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@

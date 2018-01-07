@@ -1,11 +1,9 @@
-#include "RomanNumeral.h"
+#include "RomanNumerals.h"
 #include "gtest/gtest.h"
 #include<string>
 
-namespace 
-{
-  TEST(RomanNumeral, Basic) 
-  {
+namespace {
+  TEST(RomanNumeral, Basic) {
     const int arabToCheck = 100;
     const std::string expectedRoman = "C";
 
@@ -15,8 +13,7 @@ namespace
     EXPECT_EQ(expectedRoman, actualRoman);
   }
 
-  TEST(RomanNumeral, Add) 
-  {
+  TEST(RomanNumeral, Add) {
     const int arabToCheck = 1001;
     const std::string expectedRoman = "MI";
     
@@ -26,8 +23,7 @@ namespace
     EXPECT_EQ(expectedRoman, actualRoman);
   }
 
-  TEST(RomanNumeral, Substract) 
-  {
+  TEST(RomanNumeral, Substract) {
     const int arabToCheck = 90;
     const std::string expectedRoman = "XC";
 
@@ -37,8 +33,7 @@ namespace
     EXPECT_EQ(expectedRoman, actualRoman);
   }
 
-  TEST(RomanNumeral, SubstractAndAdd) 
-  {
+  TEST(RomanNumeral, SubstractAndAdd) {
     const int arabToCheck = 92;
     const std::string expectedRoman = "XCII";
 

@@ -3,15 +3,13 @@
 #include <string>
 #include <map>
 
-class RomanNumeral
-{
+class RomanNumeral {
   public:
     std::string get();
     RomanNumeral(int);
   private:
     int arabNumeral;
-    const std::map<int, char> symbols 
-    {
+    const std::map<int, char> symbols {
       {1, 'I'}, 
       {5, 'V'}, 
       {10, 'X'},
