@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "make;  ./RomanNumeralsTests",
             "group": {
-                "kind": "build",
+                "kind": "test",
                 "isDefault": true
             }
         }
